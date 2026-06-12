@@ -22,21 +22,7 @@ Full-featured React application ready to use!
 - ✅ **Mobile Responsive** - Works on all devices
 - ✅ **Modern UI** - Glassmorphic design with dark theme
 
-**Project URL**: `https://txctngaadlkztnkqfrtm.supabase.co`
 
-### ⚠️ IMPORTANT: Set Environment Secrets
-
-Before testing, you must set environment secrets in Supabase Dashboard:
-
-**Go to**: https://supabase.com/dashboard/project/txctngaadlkztnkqfrtm/settings/functions
-
-Add these 4 secrets:
-- `Groq_API_KEY`
-- `Groq_MODEL`
-- `SUPABASE_URL`
-- `SUPABASE_SERVICE_ROLE_KEY`
-
-**See [SET_ENVIRONMENT_SECRETS.md](SET_ENVIRONMENT_SECRETS.md) for complete instructions.**
 
 ## 🎯 Features
 

@@ -1,0 +1,28 @@
+# Python dependencies for data processing and embedding generation
+
+# NOTE:
+# The latest upload/extraction dependencies recently added are frontend (npm) packages,
+# so they are tracked in package.json, not here:
+# - mammoth
+# - pdfjs-dist
+# - tesseract.js
+
+# Core dependencies
+langchain==0.1.0
+requests==2.31.0
+numpy==1.24.3
+
+# Document processing
+pypdf==3.17.4
+pandas==2.1.4
+openpyxl==3.1.2
+
+# Vector store
+supabase==2.3.0
+
+# Utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
+sentence-transformers==2.2.2
+python-docx==0.8.11
+lxml==4.9.3

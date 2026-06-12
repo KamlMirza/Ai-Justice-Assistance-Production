@@ -1,0 +1,29 @@
+ID,Court_Name,Jurisdiction_Description
+1,District Courts,"General Civil & Criminal cases (Theft, Murder, Property, Family)"
+2,Anti-Terrorism Courts (ATC),"Terrorism, kidnapping for ransom, sectarian violence"
+3,Anti-Corruption Courts,Bribery and corruption by provincial officials
+4,Banking Courts,"Loan defaults, recovery of finance, credit card disputes"
+5,Labour Courts,"Employment disputes, unfair dismissal, salary issues"
+6,Special Court (CNS),"Drug trafficking, possession, smuggling of narcotics"
+7,Appellate Tribunal Sindh Revenue Board,Appeals regarding Sindh Sales Tax on Services
+8,Environmental Protection Tribunal,"Pollution, industrial waste, environmental violations"
+9,Accountability Courts (NAB),"Mega-corruption, money laundering, misuse of authority"
+10,Custom Taxation & Anti-Smuggling Court,"Smuggling goods, tax evasion, custom duty fraud"
+11,Drug Court,"Substandard/fake medicines, pharmacy violations"
+12,Customs Excise & Sales Tax Appellate Tribunal,Appeals against Customs/Tax collector decisions
+13,Special Court (Offences in Banks),"Fraud inside banks by staff, bank robberies"
+14,Special Court Commercial,High-value commercial and business disputes
+15,Insurance Tribunal,Disputes between policyholders and insurance companies
+16,Foreign Exchange Appellate Tribunal,"Illegal money transfers, hawala/hundi violations"
+17,Removal of Anti-Encroachment Tribunal,"Illegal occupation of public land, demolition disputes"
+18,Federal Service Tribunal,Employment disputes for Federal Govt employees
+19,Intellectual Property Tribunal,"Copyright, trademark, patent infringement"
+20,Appellate Tribunal Local Councils Sindh,Disputes regarding local government councils
+21,Consumer Protection Court,"Defective products, poor services, consumer damages"
+22,Sindh Service Tribunal,Employment disputes for Sindh Govt employees
+23,Sindh Subordinate Judiciary Service Tribunal,Internal departmental matters for Judges/Court Staff
+24,Gas Utility Court,"Gas theft, meter tampering, and SSGC billing disputes"
+25,Electricity Utility Court,"Electricity theft, meter disputes (K-Electric/HESCO)"
+26,Special Court (Central) - FIA,"FIA cases: Cybercrime, Human Trafficking, Immigration fraud"
+27,Gender Based Violence (GBV) Court,"Violence against women & children (Domestic violence, Harassment)"
+28,Juvenile Court,Crimes committed by minors (under 18 years)

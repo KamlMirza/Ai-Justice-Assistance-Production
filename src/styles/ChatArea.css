@@ -1,0 +1,723 @@
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.chat-header {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.chat-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+  letter-spacing: -0.3px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.settings-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  min-width: 150px;
+  padding: 8px;
+  z-index: 1000;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Messages */
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  display: flex;
+  gap: 12px;
+  max-width: 80%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.message.user .message-avatar {
+  background: var(--accent-gold);
+}
+
+.message-content {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(31, 41, 55, 0.5);
+  border: 1px solid var(--border-color);
+}
+
+.message.user .message-content {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.message-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.message-sources {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+}
+
+.message-sources small {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Chat Input */
+.chat-input {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 14px 20px;
+  background: rgba(31, 41, 55, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  background: rgba(31, 41, 55, 0.8);
+}
+
+.chat-input input::placeholder {
+  color: var(--text-muted);
+}
+
+.send-btn {
+  padding: 14px 28px;
+  background: var(--accent-gold);
+  color: #000;
+  border: none;
+  border-radius: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .chat-header {
+    padding: 12px 16px;
+  }
+
+  .chat-header h1 {
+    font-size: 16px;
+  }
+
+  .messages-container {
+    padding: 16px;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+
+  .message-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .message-content {
+    padding: 10px 14px;
+  }
+
+  .message-content p {
+    font-size: 13px;
+  }
+
+  .chat-input {
+    padding: 12px 16px;
+  }
+
+  .chat-input input {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .send-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Lawyer Cards */
+.lawyer-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.lawyer-card {
+  background: rgba(31, 41, 55, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.lawyer-card:hover {
+  border-color: var(--accent-gold);
+  background: rgba(31, 41, 55, 0.8);
+  transform: translateY(-2px);
+}
+
+.lawyer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.lawyer-header h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.lawyer-badge {
+  background: var(--accent-gold);
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lawyer-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.lawyer-details p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.lawyer-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid var(--accent-gold);
+  border-radius: 8px;
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.lawyer-profile-link:hover {
+  background: var(--accent-gold);
+  color: #000;
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .lawyer-card {
+    padding: 12px;
+  }
+
+  .lawyer-header h4 {
+    font-size: 14px;
+  }
+
+  .lawyer-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .lawyer-details p {
+    font-size: 12px;
+  }
+
+  .lawyer-profile-link {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Lawyers Sections */
+.lawyers-section {
+  margin-bottom: 24px;
+}
+
+.lawyers-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin: 16px 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Platform Lawyer Card */
+.lawyer-card.platform {
+  border: 2px solid var(--accent-gold);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.lawyer-card.platform:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.1));
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Platform Badge */
+.lawyer-badge.platform {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: white;
+  font-weight: 700;
+}
+
+/* Lawyer Actions */
+.lawyer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.lawyer-profile-btn,
+.lawyer-contact-btn {
+  flex: 1;
+  min-width: 100px;
+  padding: 8px 12px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+.lawyer-profile-btn:hover,
+.lawyer-contact-btn:hover {
+  background: var(--accent-gold);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.lawyer-contact-btn.email::before {
+  content: '📧 ';
+}
+
+.lawyer-contact-btn.phone::before {
+  content: '📱 ';
+}
+
+/* Stage Badge */
+.stage-badge {
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid var(--accent-gold);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-left: 12px;
+}
+
+/* Court Cards */
+.court-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.court-card {
+  background: rgba(31, 41, 55, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.court-card:hover {
+  border-color: var(--accent-gold);
+  background: rgba(31, 41, 55, 0.8);
+}
+
+.court-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.court-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 4px 0;
+}
+
+/* Stage Action Buttons */
+.stage-action {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.proceed-btn,
+.finish-btn {
+  padding: 14px 32px;
+  background: var(--accent-gold);
+  color: #000;
+  border: none;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.proceed-btn:hover,
+.finish-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.finish-btn {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #f59e0b 100%);
+}
+
+/* File Upload Button */
+.file-upload-btn {
+  background: rgba(31, 41, 55, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.file-upload-btn:hover {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--accent-gold);
+}
+
+.file-upload-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.composer-attachment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: rgba(31, 41, 55, 0.45);
+  min-width: 0;
+}
+
+.composer-attachment-preview,
+.message-attachment-image {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+  flex-shrink: 0;
+}
+
+.composer-attachment-icon,
+.message-attachment-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.12);
+  flex-shrink: 0;
+}
+
+.composer-attachment-info,
+.message-attachment-chip div {
+  min-width: 0;
+}
+
+.composer-attachment-name,
+.message-attachment-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.composer-attachment-meta,
+.message-attachment-meta {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.composer-attachment-remove {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.85);
+  color: var(--text-primary);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.composer-attachment-remove:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.message-attachment {
+  margin-bottom: 10px;
+}
+
+.message-attachment-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.16);
+}
+
+.message-attachment-chip div {
+  min-width: 0;
+}
+
+/* Show More Button */
+.show-more-btn {
+  padding: 10px 24px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid var(--accent-gold);
+  border-radius: 20px;
+  color: var(--accent-gold);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.show-more-btn:hover {
+  background: var(--accent-gold);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Update chat input to accommodate file button */
+.chat-input {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.chat-input input[type="text"] {
+  flex: 1;
+  padding: 14px 20px;
+  background: rgba(31, 41, 55, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .stage-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+    margin-left: 8px;
+  }
+
+  .court-card {
+    padding: 12px;
+  }
+
+  .court-card h4 {
+    font-size: 14px;
+  }
+
+  .court-card p {
+    font-size: 12px;
+  }
+
+  .proceed-btn,
+  .finish-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .file-upload-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
